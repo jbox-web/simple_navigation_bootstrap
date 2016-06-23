@@ -9,3 +9,6 @@ gem 'simple-navigation', git: 'https://github.com/codeplant/simple-navigation.gi
 
 # README edition
 gem 'gh-preview'
+
+# CodeClimate Test Coverage
+gem 'codeclimate-test-reporter', group: :test, require: nil
