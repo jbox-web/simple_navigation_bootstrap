@@ -15,6 +15,9 @@ This gem adds Bootstrap renderers for Simple Navigation. For now, it is include 
 With these renderers you will be able create **any Bootstrap navigation elements**, such as: **submenu**, **navbar-text**, **divider**, **header**.
 As well as add **icons** to menu elements, such as: Glyphicons, Font Awesome icons, even custom icons. Also you have **split** option for main menu containing submenu.
 
+*This gem is fork of [ShPakvel/simple\_navigation\_renderers](https://github.com/ShPakvel/simple_navigation_renderers).*
+*After a year of waiting for [PR merge](https://github.com/ShPakvel/simple_navigation_renderers/pull/14) without any news from the author, I decided to fork it.*
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -75,23 +78,23 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.renderer = SimpleNavigationRenderers::Bootstrap3
 
   navigation.items do |primary|
-    primary.item :news, {icon: "fa fa-fw fa-bullhorn", text: "News"}, news_index_path
-    primary.item :concerts, "Concerts", concerts_path
-    primary.item :video, "Video", videos_path
+    primary.item :news, { icon: 'fa fa-fw fa-bullhorn', text: 'News' }, news_index_path
+    primary.item :concerts, 'Concerts', concerts_path
+    primary.item :video, 'Video', videos_path
     primary.item :divider_before_info, '#', divider: true
-    primary.item :info, {icon: "fa fa-fw fa-book", title: "Info"}, info_index_path, split: true do |info_nav|
-      info_nav.item :main_info_page, "Main info page", info_path(:main_info_page)
-      info_nav.item :about_info_page, "About", info_path(:about_info_page)
-      info_nav.item :misc_info_pages, "Misc." do |misc_page|
-        misc_page.item :header_misc_pages, "Misc. Pages", header: true
+    primary.item :info, { icon: 'fa fa-fw fa-book', title: 'Info' }, info_index_path, split: true do |info_nav|
+      info_nav.item :main_info_page, 'Main info page', info_path(:main_info_page)
+      info_nav.item :about_info_page, 'About', info_path(:about_info_page)
+      info_nav.item :misc_info_pages, 'Misc.' do |misc_page|
+        misc_page.item :header_misc_pages, 'Misc. Pages', header: true
         Info.all.each do |info_page|
           misc_page.item :"#{info_page.permalink}", info_page.title, info_path(info_page)
         end
       end
       info_nav.item :divider_before_contact_info_page, '#', divider: true
-      info_nav.item :contact_info_page, "Contact", info_path(:contact_info_page)
+      info_nav.item :contact_info_page, 'Contact', info_path(:contact_info_page)
     end
-    primary.item :singed_in, "Signed in as Pavel Shpak", navbar_text: true
+    primary.item :signed_in, 'Signed in as Pavel Shpak', navbar_text: true
   end
 end
 ```
