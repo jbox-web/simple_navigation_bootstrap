@@ -2,6 +2,10 @@
 
 [![GitHub license](https://img.shields.io/github/license/jbox-web/simple_navigation_bootstrap.svg)](https://github.com/jbox-web/simple_navigation_bootstrap/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/jbox-web/simple_navigation_bootstrap.svg)](https://github.com/jbox-web/simple_navigation_bootstrap/releases/latest)
+[![Build Status](https://travis-ci.org/jbox-web/simple_navigation_bootstrap.svg?branch=master)](https://travis-ci.org/jbox-web/simple_navigation_bootstrap)
+[![Code Climate](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/badges/gpa.svg)](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap)
+[![Test Coverage](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/badges/coverage.svg)](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/coverage)
+[![Dependency Status](https://gemnasium.com/badges/github.com/jbox-web/simple_navigation_bootstrap.svg)](https://gemnasium.com/github.com/jbox-web/simple_navigation_bootstrap)
 
 This gem adds Bootstrap renderers for Simple Navigation. For now, it is include renderers for:
 
