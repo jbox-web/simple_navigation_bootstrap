@@ -9,3 +9,6 @@
 
 # RVM files
 /.ruby-version
+
+# Generate gems
+/*.gem
