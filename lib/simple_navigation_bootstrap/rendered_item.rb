@@ -16,6 +16,7 @@ module SimpleNavigationBootstrap
       @divider      = options.delete(:divider) { false }
       @header       = options.delete(:header) { false }
       @split        = options.delete(:split) { false }
+      @skip_caret   = options.delete(:skip_caret) { false }
       @link_options = @item.link_html_options || {}
     end
 
@@ -36,7 +37,7 @@ module SimpleNavigationBootstrap
     private
 
 
-      attr_reader :item, :level, :bootstrap_version, :options, :navbar_text, :divider, :header, :link_options, :split
+      attr_reader :item, :level, :bootstrap_version, :options, :navbar_text, :divider, :header, :split, :skip_caret, :link_options
 
       def li_text
         content_tag(:li, content_tag(:p, item.name, class: 'navbar-text'), options)
@@ -63,7 +64,10 @@ module SimpleNavigationBootstrap
             if split
               splitted_simple_part + splitted_dropdown_part
             else
-              dropdown_part("#{item.name} #{caret}".html_safe)
+              content = [item.name]
+              content << caret unless skip_caret
+              content = content.join(' ').html_safe
+              dropdown_part(content)
             end
           else
             content_tag(:li, dropdown_submenu_link, options)
