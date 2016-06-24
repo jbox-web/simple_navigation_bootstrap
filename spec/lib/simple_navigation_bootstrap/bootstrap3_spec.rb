@@ -171,20 +171,20 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
 
     context "when 'hash' provided in place of 'name'" do
       context "with ':icon' parameter" do
-        it "adds span-tag with classes from the parameter" do
-          check_selector build_menu(version: 3), 'ul > li > a > span.fa.fa-fw.fa-bullhorn'
+        it "adds i-tag with classes from the parameter" do
+          check_selector build_menu(version: 3), 'ul > li > a > i.fa.fa-fw.fa-bullhorn'
         end
       end
 
       context "with ':title' parameter" do
-        it "sets up 'title' attribute on icon's span-tag to the parameter value" do
-          check_selector build_menu(version: 3), 'ul > li > a > span.fa.fa-fw.fa-book[title="Info"]'
+        it "sets up 'title' attribute on icon's i-tag to the parameter value" do
+          check_selector build_menu(version: 3), 'ul > li > a > i.fa.fa-fw.fa-book[title="Info"]'
         end
       end
 
       context "with ':text' parameter" do
         it "uses the parameter value as 'name' of the item" do
-          expect(build_menu(version: 3).css('ul > li > a > span.fa.fa-fw.fa-bullhorn')[0].parent.children[1].to_s).to eq ' News'
+          expect(build_menu(version: 3).css('ul > li > a > i.fa.fa-fw.fa-bullhorn')[0].parent.children[1].to_s).to eq ' News'
         end
       end
 

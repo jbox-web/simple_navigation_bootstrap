@@ -71,7 +71,7 @@ module SimpleNavigationBootstrap
 
         if name[:icon]
           icon_options = { class: name[:icon], title: name[:title] }.reject { |_, v| v.nil? }
-          content_tag(:span, '', icon_options) + ' ' + (name[:text] || '')
+          content_tag(:i, '', icon_options) + ' ' + (name[:text] || '')
         else
           name[:text] || (raise SimpleNavigationBootstrap::InvalidHash)
         end
