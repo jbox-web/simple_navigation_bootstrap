@@ -79,7 +79,7 @@ Lets look at the example:
 
 ```ruby
 SimpleNavigation::Configuration.run do |navigation|
-  navigation.renderer = SimpleNavigationRenderers::Bootstrap3
+  navigation.renderer = SimpleNavigationBootstrap::Bootstrap3
 
   navigation.items do |primary|
     primary.item :news, { icon: 'fa fa-fw fa-bullhorn', text: 'News' }, news_index_path
