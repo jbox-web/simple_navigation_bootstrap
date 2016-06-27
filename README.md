@@ -7,7 +7,7 @@
 [![Test Coverage](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/badges/coverage.svg)](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/coverage)
 [![Dependency Status](https://gemnasium.com/badges/github.com/jbox-web/simple_navigation_bootstrap.svg)](https://gemnasium.com/github.com/jbox-web/simple_navigation_bootstrap)
 
-This gem adds Bootstrap renderers for Simple Navigation. For now, it is include renderers for:
+This gem adds Bootstrap renderers for [Simple Navigation](https://github.com/codeplant/simple-navigation). For now, it is include renderers for:
 
 * [Bootstrap 2 navigation](http://getbootstrap.com/2.3.2/components.html#navbar)
 * [Bootstrap 3 navigation](http://getbootstrap.com/components/#navbar)
