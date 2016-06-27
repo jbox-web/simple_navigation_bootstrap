@@ -20,6 +20,8 @@ As well as add **icons** to menu elements, such as: Glyphicons, Font Awesome ico
 *This gem is fork of [ShPakvel/simple\_navigation\_renderers](https://github.com/ShPakvel/simple_navigation_renderers).*
 *After a year of waiting for [PR merge](https://github.com/ShPakvel/simple_navigation_renderers/pull/14) without any news from the author, I decided to fork it.*
 
+**This gem is compatible with SimpleNavigation 4.x.**
+
 ## Installation
 
 Add this line to your application's Gemfile:
