@@ -17,7 +17,7 @@ This gem adds Bootstrap renderers for [Simple Navigation](https://github.com/cod
 With these renderers you will be able create **any Bootstrap navigation elements**, such as: **submenu**, **navbar-text**, **divider**, **header**.
 As well as add **icons** to menu elements, such as: Glyphicons, Font Awesome icons, even custom icons. Also you have **split** option for main menu containing submenu.
 
-*This gem is fork of [ShPakvel/simple\_navigation\_renderers](https://github.com/ShPakvel/simple_navigation_renderers).*
+*This gem is a fork of [ShPakvel/simple\_navigation\_renderers](https://github.com/ShPakvel/simple_navigation_renderers).*
 *After a year of waiting for [PR merge](https://github.com/ShPakvel/simple_navigation_renderers/pull/14) without any news from the author, I decided to fork it.*
 
 **This gem is compatible with SimpleNavigation 4.x.**
