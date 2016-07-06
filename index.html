@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Simple Navigation Bootstrap by jbox-web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Simple Navigation Bootstrap</h1>
+      <h2 class="project-tagline">A Ruby gem that adds Bootstrap renderers for SimpleNavigation</h2>
+      <a href="https://github.com/jbox-web/simple_navigation_bootstrap" class="btn">View on GitHub</a>
+      <a href="https://github.com/jbox-web/simple_navigation_bootstrap/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jbox-web/simple_navigation_bootstrap/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><a href="https://github.com/jbox-web/simple_navigation_bootstrap/blob/master/LICENSE"><img src="https://img.shields.io/github/license/jbox-web/simple_navigation_bootstrap.svg" alt="GitHub license"></a>
+<a href="https://github.com/jbox-web/simple_navigation_bootstrap/releases/latest"><img src="https://img.shields.io/github/release/jbox-web/simple_navigation_bootstrap.svg" alt="GitHub release"></a>
+<a href="https://rubygems.org/gems/simple_navigation_bootstrap/versions/1.0.1"><img src="https://img.shields.io/gem/v/simple_navigation_bootstrap.svg" alt="Gem"></a>
+<a href="https://rubygems.org/gems/simple_navigation_bootstrap/versions/1.0.1"><img src="https://img.shields.io/gem/dtv/simple_navigation_bootstrap.svg" alt="Gem"></a>
+<a href="https://travis-ci.org/jbox-web/simple_navigation_bootstrap"><img src="https://travis-ci.org/jbox-web/simple_navigation_bootstrap.svg?branch=master" alt="Build Status"></a>
+<a href="https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap"><img src="https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/badges/gpa.svg" alt="Code Climate"></a>
+<a href="https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/coverage"><img src="https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/badges/coverage.svg" alt="Test Coverage"></a>
+<a href="https://gemnasium.com/github.com/jbox-web/simple_navigation_bootstrap"><img src="https://gemnasium.com/badges/github.com/jbox-web/simple_navigation_bootstrap.svg" alt="Dependency Status"></a></p>
+
+<p>This gem adds Bootstrap renderers for <a href="https://github.com/codeplant/simple-navigation">Simple Navigation</a>. For now, it is include renderers for:</p>
+
+<ul>
+<li><a href="http://getbootstrap.com/2.3.2/components.html#navbar">Bootstrap 2 navigation</a></li>
+<li><a href="http://getbootstrap.com/components/#navbar">Bootstrap 3 navigation</a></li>
+</ul>
+
+<p>With these renderers you will be able create <strong>any Bootstrap navigation elements</strong>, such as: <strong>submenu</strong>, <strong>navbar-text</strong>, <strong>divider</strong>, <strong>header</strong>.
+As well as add <strong>icons</strong> to menu elements, such as: Glyphicons, Font Awesome icons, even custom icons. Also you have <strong>split</strong> option for main menu containing submenu.</p>
+
+<p><em>This gem is a fork of <a href="https://github.com/ShPakvel/simple_navigation_renderers">ShPakvel/simple_navigation_renderers</a>.</em>
+<em>After a year of waiting for <a href="https://github.com/ShPakvel/simple_navigation_renderers/pull/14">PR merge</a> without any news from the author, I decided to fork it.</em></p>
+
+<p><strong>This gem is compatible with SimpleNavigation 4.x.</strong></p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">gem</span> <span class="pl-s"><span class="pl-pds">'</span>simple_navigation_bootstrap<span class="pl-pds">'</span></span></pre></div>
+
+<p>and then execute:</p>
+
+<div class="highlight highlight-text-shell-session"><pre>$ <span class="pl-s1">bundle install</span></pre></div>
+
+<p>Or install it yourself as:</p>
+
+<div class="highlight highlight-text-shell-session"><pre>$ <span class="pl-s1">gem install simple_navigation_bootstrap</span></pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a id="simply-set-up-renderer-and-you-are-done" class="anchor" href="#simply-set-up-renderer-and-you-are-done" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simply set up renderer and you are done!!</h3>
+
+<p>There are two ways to say that you want to use any of renderers.</p>
+
+<ol>
+<li>
+<p>You can specify it in you view as a parameter to <code>render_navigation</code>:</p>
+
+<div class="highlight highlight-text-html-erb"><pre>...
+  <span class="pl-pse">&lt;%=</span><span class="pl-s1"> render_navigation(<span class="pl-c1">expand_all:</span> <span class="pl-c1">true</span>, <span class="pl-c1">renderer:</span> <span class="pl-c1">:bootstrap2</span>) </span><span class="pl-pse"><span class="pl-s1">%</span>&gt;</span>
+  # Or
+  <span class="pl-pse">&lt;%=</span><span class="pl-s1"> render_navigation(<span class="pl-c1">expand_all:</span> <span class="pl-c1">true</span>, <span class="pl-c1">renderer:</span> <span class="pl-c1">:bootstrap3</span>) </span><span class="pl-pse"><span class="pl-s1">%</span>&gt;</span>
+...</pre></div>
+</li>
+<li>
+<p>Or you can set it in the very navigation configuration file (e.g. <code>config/navigation.rb</code>):</p>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">SimpleNavigation</span>::<span class="pl-c1">Configuration</span>.run <span class="pl-k">do </span>|<span class="pl-smi">navigation</span>|
+  navigation.renderer <span class="pl-k">=</span> <span class="pl-c1">SimpleNavigationBootstrap</span>::<span class="pl-c1">Bootstrap2</span>
+  <span class="pl-c"># or</span>
+  navigation.renderer <span class="pl-k">=</span> <span class="pl-c1">SimpleNavigationBootstrap</span>::<span class="pl-c1">Bootstrap3</span>
+  <span class="pl-c"># navigation itself goes here...</span>
+<span class="pl-k">end</span></pre></div>
+</li>
+</ol>
+
+<h2>
+<a id="explicit-example-of-using-all-features" class="anchor" href="#explicit-example-of-using-all-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Explicit example of using all features</h2>
+
+<p>I think you already using <code>simple-navigation</code> gem and know how to define navigation items.
+If not, you can always look at the <a href="https://github.com/andi/simple-navigation/wiki/Configuration">configuration instructions</a> on the Simple Navigation wiki or read comments and examples in the generated by default <code>config/navigation.rb</code> file.</p>
+
+<p>In addition to standard options you can use ones specific for Bootstrap renderers.
+Lets look at the example:</p>
+
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">SimpleNavigation</span>::<span class="pl-c1">Configuration</span>.run <span class="pl-k">do </span>|<span class="pl-smi">navigation</span>|
+  navigation.renderer <span class="pl-k">=</span> <span class="pl-c1">SimpleNavigationBootstrap</span>::<span class="pl-c1">Bootstrap3</span>
+
+  navigation.items <span class="pl-k">do </span>|<span class="pl-smi">primary</span>|
+    primary.item <span class="pl-c1">:news</span>, { <span class="pl-c1">icon:</span> <span class="pl-s"><span class="pl-pds">'</span>fa fa-fw fa-bullhorn<span class="pl-pds">'</span></span>, <span class="pl-c1">text:</span> <span class="pl-s"><span class="pl-pds">'</span>News<span class="pl-pds">'</span></span> }, news_index_path
+    primary.item <span class="pl-c1">:concerts</span>, <span class="pl-s"><span class="pl-pds">'</span>Concerts<span class="pl-pds">'</span></span>, concerts_path
+    primary.item <span class="pl-c1">:video</span>, <span class="pl-s"><span class="pl-pds">'</span>Video<span class="pl-pds">'</span></span>, videos_path
+    primary.item <span class="pl-c1">:divider_before_info</span>, <span class="pl-s"><span class="pl-pds">'</span>#<span class="pl-pds">'</span></span>, <span class="pl-c1">divider:</span> <span class="pl-c1">true</span>
+    primary.item <span class="pl-c1">:info</span>, { <span class="pl-c1">icon:</span> <span class="pl-s"><span class="pl-pds">'</span>fa fa-fw fa-book<span class="pl-pds">'</span></span>, <span class="pl-c1">title:</span> <span class="pl-s"><span class="pl-pds">'</span>Info<span class="pl-pds">'</span></span> }, info_index_path, <span class="pl-c1">split:</span> <span class="pl-c1">true</span> <span class="pl-k">do </span>|<span class="pl-smi">info_nav</span>|
+      info_nav.item <span class="pl-c1">:main_info_page</span>, <span class="pl-s"><span class="pl-pds">'</span>Main info page<span class="pl-pds">'</span></span>, info_path(<span class="pl-c1">:main_info_page</span>)
+      info_nav.item <span class="pl-c1">:about_info_page</span>, <span class="pl-s"><span class="pl-pds">'</span>About<span class="pl-pds">'</span></span>, info_path(<span class="pl-c1">:about_info_page</span>)
+      info_nav.item <span class="pl-c1">:misc_info_pages</span>, <span class="pl-s"><span class="pl-pds">'</span>Misc.<span class="pl-pds">'</span></span> <span class="pl-k">do </span>|<span class="pl-smi">misc_page</span>|
+        misc_page.item <span class="pl-c1">:header_misc_pages</span>, <span class="pl-s"><span class="pl-pds">'</span>Misc. Pages<span class="pl-pds">'</span></span>, <span class="pl-c1">header:</span> <span class="pl-c1">true</span>
+        <span class="pl-c1">Info</span>.all.each <span class="pl-k">do </span>|<span class="pl-smi">info_page</span>|
+          misc_page.item <span class="pl-c1">:"<span class="pl-pse">#{</span><span class="pl-s1">info_page.permalink</span><span class="pl-pse"><span class="pl-s1">}</span></span>"</span>, info_page.title, info_path(info_page)
+        <span class="pl-k">end</span>
+      <span class="pl-k">end</span>
+      info_nav.item <span class="pl-c1">:divider_before_contact_info_page</span>, <span class="pl-s"><span class="pl-pds">'</span>#<span class="pl-pds">'</span></span>, <span class="pl-c1">divider:</span> <span class="pl-c1">true</span>
+      info_nav.item <span class="pl-c1">:contact_info_page</span>, <span class="pl-s"><span class="pl-pds">'</span>Contact<span class="pl-pds">'</span></span>, info_path(<span class="pl-c1">:contact_info_page</span>)
+    <span class="pl-k">end</span>
+    primary.item <span class="pl-c1">:signed_in</span>, <span class="pl-s"><span class="pl-pds">'</span>Signed in as Pavel Shpak<span class="pl-pds">'</span></span>, <span class="pl-c1">navbar_text:</span> <span class="pl-c1">true</span>
+  <span class="pl-k">end</span>
+<span class="pl-k">end</span></pre></div>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<p>Specific options used in the example:</p>
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:split</code></td>
+<td>Use it to split first level item link with caret. If you add <code>split: true</code> option to item, then caret itself will toggle first level submenu and link will have standard behaviour, instead of toggle submenu. You can use <code>:split</code> only with first level items, for the rest it will not do anything.</td>
+</tr>
+<tr>
+<td><code>:navbar_text</code></td>
+<td>Use it as <code>navbar_text: true</code> to add Bootstrap <code>navbar-text</code>.</td>
+</tr>
+<tr>
+<td><code>:divider</code></td>
+<td>Use it to add Bootstrap menu divider. if you add <code>divider: true</code> option to first level item, then it will create li-tag with <code>divider-vertical</code> Bootstrap 2 class. (You can add <code>divider-vertical</code> class to Bootstrap 3 - see below). For the second level item and deeper it will create <code>li</code> tag with class <code>divider</code> (which exists in both, Bootstrap 2 and 3).</td>
+</tr>
+<tr>
+<td><code>:header</code></td>
+<td>Use it as <code>header: true</code> to add Bootstrap menu header. You can use <code>:header</code> only with submenus, for the first level items it will not do anything.</td>
+</tr>
+<tr>
+<td><code>:name hash</code></td>
+<td>Use it in place of <code>:name</code> if you want. Hash can have three keys: <code>:text</code>, <code>:icon</code> and <code>:title</code>, which is only recognized. You can use it together or separatly, but at least one of <code>:text</code> and <code>:icon</code> parameters should be provided.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Example for <code>:name hash</code>:</p>
+
+<ul>
+<li>
+<code>{ text: 'News', icon: 'fa fa-fw fa-bullhorn' }</code> will create Font Awesome icon and add text after it (name of the item)</li>
+<li>
+<code>{ icon: 'glyphicon glyphicon-book', title: 'Info' }</code> will create Bootstrap icon with title without any text after it</li>
+</ul>
+
+<h2>
+<a id="notes" class="anchor" href="#notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notes</h2>
+
+<ol>
+<li>
+<p>Bootstrap 3 has only one level submenu. If you want to use nested submenus as in example above, import <code>bootstrap2_dropdown_submenu.css.scss</code> file into your Sass file (e.g. <code>application.css.scss</code>) as following:</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-k">@import</span> "<span class="pl-v">bootstrap2_dropdown_submenu</span>";</pre></div>
+</li>
+<li>
+<p>Bootstrap 3 has not <code>divider-vertical</code> class. If you want to use it as in example above, import <code>bootstrap2_navbar_divider_vertical.css.scss</code> file:</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-k">@import</span> "<span class="pl-v">bootstrap2_navbar_divider_vertical</span>";</pre></div>
+</li>
+<li>
+<p>You may also want to include following file which changes some first level submenu style:</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-k">@import</span> "<span class="pl-v">simple_navigation_bootstrap_overrides</span>";</pre></div>
+</li>
+<li>
+<p>or you can add them all together:</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-k">@import</span> "<span class="pl-v">simple_navigation_bootstrap</span>";</pre></div>
+</li>
+</ol>
+
+<h2>
+<a id="test" class="anchor" href="#test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Test</h2>
+
+<p>Just run following commands:</p>
+
+<div class="highlight highlight-text-shell-session"><pre>$ <span class="pl-s1">bundle install</span>
+$ <span class="pl-s1">rake</span></pre></div>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+
+<h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h2>
+
+<p>A big thank to <a href="https://github.com/jbox-web/simple_navigation_bootstrap/blob/master/AUTHORS">them</a> for their contribution!</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jbox-web/simple_navigation_bootstrap">Simple Navigation Bootstrap</a> is maintained by <a href="https://github.com/jbox-web">jbox-web</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
