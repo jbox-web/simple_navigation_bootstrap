@@ -107,13 +107,13 @@ end
 
 Specific options used in the example:
 
-    Option     | Description
----------------|--------------
-`:split`       | Use it to split first level item link with caret. If you add `split: true` option to item, then caret itself will toggle first level submenu and link will have standard behaviour, instead of toggle submenu. You can use `:split` only with first level items, for the rest it will not do anything.
-`:navbar_text` | Use it as `navbar_text: true` to add Bootstrap `navbar-text`.
-`:divider`     | Use it to add Bootstrap menu divider. if you add `divider: true` option to first level item, then it will create li-tag with `divider-vertical` Bootstrap 2 class. (You can add `divider-vertical` class to Bootstrap 3 - see below). For the second level item and deeper it will create `li` tag with class `divider` (which exists in both, Bootstrap 2 and 3).
-`:header`      | Use it as `header: true` to add Bootstrap menu header. You can use `:header` only with submenus, for the first level items it will not do anything.
-`:name hash`   | Use it in place of `:name` if you want. Hash can have three keys: `:text`, `:icon` and `:title`, which is only recognized. You can use it together or separatly, but at least one of `:text` and `:icon` parameters should be provided.
+|    Option     | Description
+|---------------|--------------
+|`:split`       | Use it to split first level item link with caret. If you add `split: true` option to item, then caret itself will toggle first level submenu and link will have standard behaviour, instead of toggle submenu. You can use `:split` only with first level items, for the rest it will not do anything.
+|`:navbar_text` | Use it as `navbar_text: true` to add Bootstrap `navbar-text`.
+|`:divider`     | Use it to add Bootstrap menu divider. if you add `divider: true` option to first level item, then it will create li-tag with `divider-vertical` Bootstrap 2 class. (You can add `divider-vertical` class to Bootstrap 3 - see below). For the second level item and deeper it will create `li` tag with class `divider` (which exists in both, Bootstrap 2 and 3).
+|`:header`      | Use it as `header: true` to add Bootstrap menu header. You can use `:header` only with submenus, for the first level items it will not do anything.
+|`:name hash`   | Use it in place of `:name` if you want. Hash can have three keys: `:text`, `:icon` and `:title`, which is only recognized. You can use it together or separatly, but at least one of `:text` and `:icon` parameters should be provided.
 
 Example for `:name hash`:
 
