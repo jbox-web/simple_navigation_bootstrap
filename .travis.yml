@@ -1,10 +1,11 @@
+dist: trusty
 language: ruby
 cache: bundler
 sudo: false
 rvm:
-  - 2.4.1
-  - 2.3.4
-  - 2.2.7
-  - jruby-9.1.7.0
+  - 2.4.2
+  - 2.3.5
+  - 2.2.8
+  - jruby-9.1.14.0
 after_success:
   - bundle exec codeclimate-test-reporter
