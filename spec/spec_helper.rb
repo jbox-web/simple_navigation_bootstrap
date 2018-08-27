@@ -1,11 +1,9 @@
 require 'simplecov'
 
-# Configure SimpleCov
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::HTMLFormatter,
-])
-
-SimpleCov.start
+# Start SimpleCov
+SimpleCov.start do
+  add_filter 'spec/'
+end
 
 # SimpleNavigation currently only works for Rails, Sinatra and Padrino apps
 # This is a workaround to be able to test the lib
