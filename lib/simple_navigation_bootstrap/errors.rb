@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SimpleNavigationBootstrap
   # Exception raised when you set Hash without both 'text' and 'icon' parameters as Item 'name' parameter
   class InvalidHash < StandardError

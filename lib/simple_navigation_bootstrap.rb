@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'forwardable'
 require 'simple-navigation'
 require 'simple_navigation_bootstrap/errors'

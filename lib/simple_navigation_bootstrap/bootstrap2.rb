@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SimpleNavigationBootstrap
   class Bootstrap2 < SimpleNavigation::Renderer::Base
 
