@@ -14,11 +14,11 @@ module SimpleNavigationBootstrap
       @bootstrap_version = bootstrap_version
 
       @options      = item.html_options
-      @navbar_text  = options.delete(:navbar_text)
-      @divider      = options.delete(:divider) { false }
-      @header       = options.delete(:header) { false }
-      @split        = options.delete(:split) { false }
-      @skip_caret   = options.delete(:skip_caret) { false }
+      @navbar_text  = options.fetch(:navbar_text) { nil }
+      @divider      = options.fetch(:divider) { false }
+      @header       = options.fetch(:header) { false }
+      @split        = options.fetch(:split) { false }
+      @skip_caret   = options.fetch(:skip_caret) { false }
       @link_options = @item.link_html_options || {}
     end
 
