@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.push(lib) unless $LOAD_PATH.include?(lib)
-require 'simple_navigation_bootstrap/version'
+require_relative 'lib/simple_navigation_bootstrap/version'
 
 Gem::Specification.new do |s|
   s.name        = 'simple_navigation_bootstrap'
@@ -15,6 +13,8 @@ Gem::Specification.new do |s|
   s.description = 'This gem adds Bootstrap2 and Bootstrap3 renderers for SimpleNavigation'
   s.license     = 'MIT'
 
+  s.files = `git ls-files`.split("\n")
+
   s.add_runtime_dependency 'simple-navigation', '~> 4.0'
 
   s.add_development_dependency 'actionpack'
@@ -22,9 +22,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'simplecov'
-
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
-  s.require_paths = ['lib']
 end
