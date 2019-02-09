@@ -1,5 +1,15 @@
 ## CHANGELOG
 
+### 1.2.0 - 2019-02-09
+
+* Add Bootstrap4 renderer
+
+
+### 1.1.1 - 2018-10-31
+
+* Use Hash#fetch instead of #delete to not change menu options
+
+
 ### 1.1.0 - 2018-08-27
 
 * Add magic comment # frozen_string_literal: true
