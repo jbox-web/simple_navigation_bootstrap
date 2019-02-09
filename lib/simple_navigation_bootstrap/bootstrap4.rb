@@ -19,7 +19,7 @@ module SimpleNavigationBootstrap
       end
 
 
-      def container_class(level)
+      def container_class(_level)
         remove_navigation_class = options.fetch(:remove_navigation_class) { false }
         remove_navigation_class ? '' : ['nav', navigation_class].compact
       end
