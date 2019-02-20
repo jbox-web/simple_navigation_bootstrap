@@ -3,13 +3,10 @@
 require 'forwardable'
 require 'simple-navigation'
 
+require 'zeitwerk'
+Zeitwerk::Loader.for_gem.setup
+
 module SimpleNavigationBootstrap
-  require 'simple_navigation_bootstrap/error'
-  require 'simple_navigation_bootstrap/rendered_item'
-  require 'simple_navigation_bootstrap/bootstrap_base'
-  require 'simple_navigation_bootstrap/bootstrap2'
-  require 'simple_navigation_bootstrap/bootstrap3'
-  require 'simple_navigation_bootstrap/bootstrap4'
 end
 
 SimpleNavigation.register_renderer(bootstrap2: SimpleNavigationBootstrap::Bootstrap2)
