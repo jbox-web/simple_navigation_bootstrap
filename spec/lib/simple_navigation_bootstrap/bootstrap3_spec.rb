@@ -185,7 +185,7 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
         it "raises 'InvalidHash' error" do
           expect {
             build_menu(version: 3, stub_name: true)
-          }.to raise_error(SimpleNavigationBootstrap::InvalidHash)
+          }.to raise_error(SimpleNavigationBootstrap::Error::InvalidHash)
         end
       end
     end

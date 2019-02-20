@@ -4,7 +4,7 @@ require 'forwardable'
 require 'simple-navigation'
 
 module SimpleNavigationBootstrap
-  require 'simple_navigation_bootstrap/errors'
+  require 'simple_navigation_bootstrap/error'
   require 'simple_navigation_bootstrap/rendered_item'
   require 'simple_navigation_bootstrap/bootstrap_base'
   require 'simple_navigation_bootstrap/bootstrap2'
