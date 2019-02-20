@@ -10,7 +10,6 @@ module SimpleNavigationBootstrap
   require 'simple_navigation_bootstrap/bootstrap2'
   require 'simple_navigation_bootstrap/bootstrap3'
   require 'simple_navigation_bootstrap/bootstrap4'
-  require 'simple_navigation_bootstrap/engine' if defined? Rails::Engine
 end
 
 SimpleNavigation.register_renderer(bootstrap2: SimpleNavigationBootstrap::Bootstrap2)
