@@ -13,6 +13,8 @@ Gem::Specification.new do |s|
   s.description = 'This gem adds Bootstrap2 and Bootstrap3 renderers for SimpleNavigation'
   s.license     = 'MIT'
 
+  s.required_ruby_version = '>= 2.4.0'
+
   s.files = `git ls-files`.split("\n")
 
   s.add_runtime_dependency 'simple-navigation', '~> 4.0'
