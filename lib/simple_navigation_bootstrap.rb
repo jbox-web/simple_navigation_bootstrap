@@ -4,7 +4,8 @@ require 'forwardable'
 require 'simple-navigation'
 
 require 'zeitwerk'
-Zeitwerk::Loader.for_gem.setup
+loader = Zeitwerk::Loader.for_gem
+loader.setup
 
 module SimpleNavigationBootstrap
 end
