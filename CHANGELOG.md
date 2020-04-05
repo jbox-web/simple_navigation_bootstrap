@@ -1,5 +1,14 @@
 ## CHANGELOG
 
+### 1.3.0 - 2020-04-05
+
+* Add support of Ruby 2.7
+* Switch to Zeitwerk to load gem files
+* Add binstubs to ease development
+* Drop support of Ruby 2.3
+
+* This is the last version to support Ruby 2.4.x
+
 ### 1.2.0 - 2019-02-09
 
 * Add Bootstrap4 renderer
