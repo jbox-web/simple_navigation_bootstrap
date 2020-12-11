@@ -43,7 +43,7 @@ module TestHelper
 
     def simple_navigation_adapter
       SimpleNavigation::Adapters::Rails.new(
-        double(:context, view_context: ActionView::Base.new)
+        double(:context, view_context: ActionView::Base.new(ActionController::Base.view_paths, {}, ActionController::Base.new))
       )
     end
 
