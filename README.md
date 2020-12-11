@@ -4,7 +4,7 @@
 [![GitHub release](https://img.shields.io/github/release/jbox-web/simple_navigation_bootstrap.svg)](https://github.com/jbox-web/simple_navigation_bootstrap/releases/latest)
 [![Gem](https://img.shields.io/gem/v/simple_navigation_bootstrap.svg)](https://rubygems.org/gems/simple_navigation_bootstrap/versions/1.0.1)
 [![Gem](https://img.shields.io/gem/dtv/simple_navigation_bootstrap.svg)](https://rubygems.org/gems/simple_navigation_bootstrap/versions/1.0.1)
-[![Build Status](https://travis-ci.com/jbox-web/simple_navigation_bootstrap.svg?branch=master)](https://travis-ci.com/jbox-web/simple_navigation_bootstrap)
+[![CI](https://github.com/jbox-web/simple_navigation_bootstrap/workflows/CI/badge.svg)](https://github.com/jbox-web/simple_navigation_bootstrap/actions)
 [![Code Climate](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/badges/gpa.svg)](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap)
 [![Test Coverage](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/badges/coverage.svg)](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/coverage)
 
