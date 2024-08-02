@@ -27,4 +27,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'rubocop'
   s.add_development_dependency 'simplecov'
+
+  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('3.4.0')
+    s.add_runtime_dependency 'logger'
+    s.add_runtime_dependency 'ostruct'
+  end
 end
