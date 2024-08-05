@@ -17,19 +17,6 @@ Gem::Specification.new do |s|
 
   s.files = `git ls-files`.split("\n")
 
-  s.add_runtime_dependency 'simple-navigation', '~> 4.0'
-  s.add_runtime_dependency 'zeitwerk'
-
-  s.add_development_dependency 'actionpack'
-  s.add_development_dependency 'actionview'
-  s.add_development_dependency 'guard-rspec'
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'rubocop'
-  s.add_development_dependency 'simplecov'
-
-  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('3.4.0')
-    s.add_runtime_dependency 'logger'
-    s.add_runtime_dependency 'ostruct'
-  end
+  s.add_dependency 'simple-navigation', '~> 4.0'
+  s.add_dependency 'zeitwerk'
 end
