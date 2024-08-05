@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = SimpleNavigationBootstrap::VERSION::STRING
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Pavel Shpak', 'Nicolas Rodriguez']
-  s.email       = ['shpakvel@gmail.com', 'nrodriguez@jbox-web.com']
+  s.email       = ['shpakvel@gmail.com', 'nico@nicoladmin.fr']
   s.homepage    = 'https://github.com/jbox-web/simple_navigation_bootstrap'
   s.summary     = 'A Ruby gem that adds Bootstrap renderers for SimpleNavigation'
   s.description = 'This gem adds Bootstrap2 and Bootstrap3 renderers for SimpleNavigation'
