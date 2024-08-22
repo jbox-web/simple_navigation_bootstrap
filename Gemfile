@@ -10,6 +10,7 @@ gem 'guard-rspec'
 gem 'rake'
 gem 'rspec'
 gem 'rubocop'
+gem 'rubocop-performance'
 gem 'simplecov'
 
 # Fix:
