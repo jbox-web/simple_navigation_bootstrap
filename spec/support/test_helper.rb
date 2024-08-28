@@ -1,4 +1,6 @@
-module TestHelper
+# frozen_string_literal: true
+
+module TestHelper # rubocop:disable Metrics/ModuleLength
 
   def build_menu(version:, menu_name: :splited_menu, stub_name: false, menu_opts: {})
     case version
@@ -6,7 +8,8 @@ module TestHelper
       render_result(SimpleNavigationBootstrap::Bootstrap2, menu_name, stub_name, menu_opts)
     when 3
       render_result(SimpleNavigationBootstrap::Bootstrap3, menu_name, stub_name, menu_opts)
-    else
+    when 4
+      render_result(SimpleNavigationBootstrap::Bootstrap4, menu_name, stub_name, menu_opts)
     end
   end
 
@@ -37,13 +40,13 @@ module TestHelper
     def prepare_navigation_instance(renderer)
       SimpleNavigation::Configuration.instance.renderer = renderer
       allow(SimpleNavigation).to receive_messages(adapter: simple_navigation_adapter)
-      allow_any_instance_of(SimpleNavigation::Item).to receive_messages(selected?: false, selected_by_condition?: false)
+      allow_any_instance_of(SimpleNavigation::Item).to receive_messages(selected?: false, selected_by_condition?: false) # rubocop:disable RSpec/AnyInstance
     end
 
 
     def simple_navigation_adapter
       SimpleNavigation::Adapters::Rails.new(
-        double(:context, view_context: ActionView::Base.new(ActionController::Base.view_paths, {}, ActionController::Base.new))
+        double(:context, view_context: ActionView::Base.new(ActionController::Base.view_paths, {}, ActionController::Base.new)) # rubocop:disable RSpec/VerifiedDoubles
       )
     end
 
@@ -71,7 +74,7 @@ module TestHelper
     ### TESTED NAVIGATION CONTENT ###
 
 
-    def splited_menu(primary)
+    def splited_menu(primary) # rubocop:disable Metrics/MethodLength
       primary.item :news, { icon: 'fa fa-fw fa-bullhorn', text: 'News' }, 'news_index_path'
       primary.item :concerts, 'Concerts', 'concerts_path', html: { class: 'to_check_header', header: true }
       primary.item :video, 'Video', 'videos_path', html: { class: 'to_check_split', split: true }
@@ -92,7 +95,7 @@ module TestHelper
     end
 
 
-    def unsplited_menu(primary)
+    def unsplited_menu(primary) # rubocop:disable Metrics/MethodLength
       primary.item :news, { icon: 'fa fa-fw fa-bullhorn', text: 'News' }, 'news_index_path'
       primary.item :concerts, 'Concerts', 'concerts_path', html: { class: 'to_check_header', header: true }
       primary.item :video, 'Video', 'videos_path', html: { class: 'to_check_split', split: true }
@@ -113,7 +116,7 @@ module TestHelper
     end
 
 
-    def demo_menu(primary)
+    def demo_menu(primary) # rubocop:disable Metrics/MethodLength
       primary.item :news, { icon: 'fa fa-fw fa-bullhorn', text: 'News' }, '/news_index_path'
       primary.item :concerts, 'Concerts', '/concerts_path'
       primary.item :video, 'Video', '/videos_path'
@@ -133,7 +136,6 @@ module TestHelper
     end
 
 
-    def empty_menu(primary)
-    end
+    def empty_menu(primary); end
 
 end

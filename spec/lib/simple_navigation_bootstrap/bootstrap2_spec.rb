@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe SimpleNavigationBootstrap::Bootstrap2 do
@@ -11,17 +13,17 @@ describe SimpleNavigationBootstrap::Bootstrap2 do
     end
 
     context "when ':header' option provided" do
-      context "for the first level item" do
+      context 'for the first level item' do
         it "does not set up 'dropdown-header' or 'nav-header' class on li-tag" do
           check_selector bootstrap_menu, 'ul.nav > li.to_check_header.nav-header', 0
         end
 
-        it "creates link-tag for the item (standard item)" do
+        it 'creates link-tag for the item (standard item)' do
           check_selector bootstrap_menu, 'ul.nav > li.to_check_header > a'
         end
       end
 
-      context "for the second level item and deeper" do
+      context 'for the second level item and deeper' do
         it "sets up 'nav-header' class on li-tag" do
           check_selector bootstrap_menu, 'ul.dropdown-menu > li.to_check_header2.nav-header'
         end
@@ -40,7 +42,7 @@ describe SimpleNavigationBootstrap::Bootstrap2 do
       end
     end
 
-    context "when container is empty" do
+    context 'when container is empty' do
       let(:bootstrap_menu) { build_menu(version: 2, menu_name: :empty_menu, menu_opts: { skip_if_empty: true }) }
 
       it 'return empty list' do

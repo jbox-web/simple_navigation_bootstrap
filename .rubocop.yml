@@ -9,7 +9,6 @@ AllCops:
   TargetRubyVersion: 3.0
   Exclude:
     - bin/*
-    - spec/**/*
 
 Gemspec/RequireMFA:
   Enabled: false
@@ -20,6 +19,9 @@ Gemspec/RequireMFA:
 
 Style/Documentation:
   Enabled: false
+
+Style/BlockDelimiters:
+  AllowedPatterns: ['expect']
 
 ##########
 # LAYOUT #
@@ -44,4 +46,21 @@ Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
 
 Layout/LineLength:
-  Max: 130
+  Max: 145
+
+#########
+# RSPEC #
+#########
+
+RSpec/NoExpectationExample:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/ContextWording:
+  Prefixes:
+    - when
+    - with
+    - without
+    - for

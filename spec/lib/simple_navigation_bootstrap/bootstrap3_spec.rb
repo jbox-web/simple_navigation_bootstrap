@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe SimpleNavigationBootstrap::Bootstrap3 do
@@ -17,7 +19,7 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
       check_selector bootstrap_menu, 'ul > li > ul.dropdown-menu > li > ul.dropdown-menu'
     end
 
-    context "for the first level submenu (the second level menu)" do
+    context 'for the first level submenu (the second level menu)' do
       it "sets up 'dropdown' class on li-tag which contains that submenu" do
         check_selector bootstrap_menu, 'ul > li.dropdown'
       end
@@ -43,15 +45,15 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
       end
     end
 
-    context "for nested submenu (the third level menu and deeper)" do
+    context 'for nested submenu (the third level menu and deeper)' do
       it "sets up 'dropdown-submenu' class on li-tag which contains that submenu" do
         check_selector bootstrap_menu, 'ul > li > ul.dropdown-menu > li.dropdown-submenu'
       end
     end
 
     context "when ':split' option provided" do
-      context "for the first level item which contains submenu" do
-        it "splits item on two li-tags (left and right) and right li-tag will contain the first level submenu (second level menu)" do
+      context 'for the first level item which contains submenu' do
+        it 'splits item on two li-tags (left and right) and right li-tag will contain the first level submenu (second level menu)' do
           check_selector bootstrap_menu, 'ul > li.dropdown-split-left + li.dropdown.dropdown-split-right > ul.dropdown-menu'
         end
 
@@ -60,8 +62,8 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
         end
       end
 
-      context "for the second level item and deeper which contains submenu" do
-        it "does not splits item on two li-tags" do
+      context 'for the second level item and deeper which contains submenu' do
+        it 'does not splits item on two li-tags' do
           check_selector bootstrap_menu, 'ul.dropdown-menu > li.dropdown-split-left + li.dropdown.dropdown-split-right > ul.dropdown-menu', 0
           check_selector bootstrap_menu, 'ul.dropdown-menu > li.dropdown-submenu > ul.dropdown-menu'
         end
@@ -71,8 +73,8 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
         end
       end
 
-      context "for item which does not contain submenu" do
-        it "does not splits item on two li-tags" do
+      context 'for item which does not contain submenu' do
+        it 'does not splits item on two li-tags' do
           check_selector bootstrap_menu, 'ul > li.to_check_split.dropdown-split-left + li.dropdown.dropdown-split-right', 0
           check_selector bootstrap_menu, 'ul > li.to_check_split'
         end
@@ -82,8 +84,8 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
     context "when ':split' option is not provided" do
       let(:bootstrap_menu) { build_menu(version: 3, menu_name: :unsplited_menu) }
 
-      context "for the first level item which contains submenu" do
-        it "does not splits item on two li-tags (left and right) and right li-tag will contain the first level submenu (second level menu)" do
+      context 'for the first level item which contains submenu' do
+        it 'does not splits item on two li-tags (left and right) and right li-tag will contain the first level submenu (second level menu)' do
           check_selector bootstrap_menu, 'ul > li.dropdown-split-left + li.dropdown.dropdown-split-right > ul.dropdown-menu', 0
         end
 
@@ -92,8 +94,8 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
         end
       end
 
-      context "for the second level item and deeper which contains submenu" do
-        it "does not splits item on two li-tags" do
+      context 'for the second level item and deeper which contains submenu' do
+        it 'does not splits item on two li-tags' do
           check_selector bootstrap_menu, 'ul.dropdown-menu > li.dropdown-split-left + li.dropdown.dropdown-split-right > ul.dropdown-menu', 0
           check_selector bootstrap_menu, 'ul.dropdown-menu > li.dropdown-submenu > ul.dropdown-menu'
         end
@@ -103,8 +105,8 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
         end
       end
 
-      context "for item which does not contain submenu" do
-        it "does not splits item on two li-tags" do
+      context 'for item which does not contain submenu' do
+        it 'does not splits item on two li-tags' do
           check_selector bootstrap_menu, 'ul > li.to_check_split.dropdown-split-left + li.dropdown.dropdown-split-right', 0
           check_selector bootstrap_menu, 'ul > li.to_check_split'
         end
@@ -119,19 +121,19 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
     end
 
     context "when ':divider' option provided" do
-      it "does not create link-tag for the item (standard item)" do
+      it 'does not create link-tag for the item (standard item)' do
         check_selector bootstrap_menu, 'ul > li.divider-vertical + li > a[href="divider_before_info_index_path"]', 0
         check_selector bootstrap_menu, 'ul.dropdown-menu > li.divider + li > a[href="divider_before_misc_info_pages"]', 0
         check_selector bootstrap_menu, 'ul.dropdown-menu > li.divider + li > a[href="divider_before_contact_info_page"]', 0
       end
 
-      context "for the first level item" do
+      context 'for the first level item' do
         it "adds li-tag with class 'divider-vertical'" do
           check_selector bootstrap_menu, 'ul > li.divider-vertical + li > a[href="info_index_path"]'
         end
       end
 
-      context "for the second level item and deeper" do
+      context 'for the second level item and deeper' do
         it "adds li-tag with class 'divider'" do
           check_selector bootstrap_menu, 'ul.dropdown-menu > li.divider + li > a[href="misc_info_pages"]'
           check_selector bootstrap_menu, 'ul.dropdown-menu > li.divider + li > a[href="contact_info_page"]'
@@ -140,17 +142,17 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
     end
 
     context "when ':header' option provided" do
-      context "for the first level item" do
+      context 'for the first level item' do
         it "does not set up 'dropdown-header' or 'nav-header' class on li-tag" do
           check_selector bootstrap_menu, 'ul.nav.navbar-nav > li.to_check_header.dropdown-header', 0
         end
 
-        it "creates link-tag for the item (standard item)" do
+        it 'creates link-tag for the item (standard item)' do
           check_selector bootstrap_menu, 'ul.nav.navbar-nav > li.to_check_header > a'
         end
       end
 
-      context "for the second level item and deeper" do
+      context 'for the second level item and deeper' do
         it "sets up 'dropdown-header' class on li-tag" do
           check_selector bootstrap_menu, 'ul.dropdown-menu > li.to_check_header2.dropdown-header'
         end
@@ -164,7 +166,7 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
 
     context "when 'hash' provided in place of 'name'" do
       context "with ':icon' parameter" do
-        it "adds i-tag with classes from the parameter" do
+        it 'adds i-tag with classes from the parameter' do
           check_selector bootstrap_menu, 'ul > li > a > i.fa.fa-fw.fa-bullhorn'
         end
       end
@@ -190,7 +192,7 @@ describe SimpleNavigationBootstrap::Bootstrap3 do
       end
     end
 
-    context "when container is empty" do
+    context 'when container is empty' do
       let(:bootstrap_menu) { build_menu(version: 3, menu_name: :empty_menu, menu_opts: { skip_if_empty: true }) }
 
       it 'return empty list' do

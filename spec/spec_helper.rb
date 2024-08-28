@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 
 # Start SimpleCov
@@ -13,11 +15,13 @@ ENV['RAILS_ENV'] = 'test'
 require 'action_controller'
 require 'action_view'
 
-module Rails
-  module VERSION
-    MAJOR = 2
+unless defined? Rails
+  module Rails
+    module VERSION
+      MAJOR = 2
+    end
   end
-end unless defined? Rails
+end
 
 RAILS_ROOT = './' unless defined?(RAILS_ROOT)
 RAILS_ENV = 'test' unless defined?(RAILS_ENV)
