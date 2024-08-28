@@ -12,3 +12,6 @@
 
 # Generate gems
 /*.gem
+
+# Ignore MacOS files
+.DS_Store
