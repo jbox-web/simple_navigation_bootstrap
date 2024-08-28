@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe SimpleNavigationBootstrap::Bootstrap3 do
+RSpec.describe SimpleNavigationBootstrap::Bootstrap3 do
 
   let(:bootstrap_menu) { build_menu(version: 3) }
 

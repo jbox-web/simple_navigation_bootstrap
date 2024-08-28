@@ -35,6 +35,20 @@ Dir[File.join(current_dir, 'spec/support/**/*.rb')].each { |f| require f }
 
 # Configure RSpec
 RSpec.configure do |config|
+  config.color = true
+  config.fail_fast = false
+
+  config.order = :random
+  Kernel.srand config.seed
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
+
+  # disable monkey patching
+  # see: https://relishapp.com/rspec/rspec-core/v/3-8/docs/configuration/zero-monkey-patching-mode
+  config.disable_monkey_patching!
+
   # Include standard helpers
   config.include TestHelper
 end

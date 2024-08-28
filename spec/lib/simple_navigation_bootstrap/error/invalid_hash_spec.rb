@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe SimpleNavigationBootstrap::Error::InvalidHash do
+RSpec.describe SimpleNavigationBootstrap::Error::InvalidHash do
   subject(:exception) { described_class.new }
 
   it 'has specific default message' do

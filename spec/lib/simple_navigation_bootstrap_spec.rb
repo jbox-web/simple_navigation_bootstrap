@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe SimpleNavigationBootstrap do
+RSpec.describe SimpleNavigationBootstrap do
   it 'registers Bootstrap2 renderer' do
     expect(SimpleNavigation.registered_renderers[:bootstrap2]).to eq SimpleNavigationBootstrap::Bootstrap2
   end
