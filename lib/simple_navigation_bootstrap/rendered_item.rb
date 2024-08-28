@@ -5,20 +5,21 @@ module SimpleNavigationBootstrap
     extend Forwardable
 
     attr_reader :renderer
+
     def_delegators :renderer, :link_to, :content_tag, :include_sub_navigation?, :render_sub_navigation_for
 
-    def initialize(renderer, item, level, bootstrap_version)
+    def initialize(renderer, item, level, bootstrap_version) # rubocop:disable Metrics/MethodLength
       @renderer = renderer
       @item     = item
       @level    = level
       @bootstrap_version = bootstrap_version
 
       @options      = item.html_options
-      @navbar_text  = options.fetch(:navbar_text) { nil }
-      @divider      = options.fetch(:divider) { false }
-      @header       = options.fetch(:header) { false }
-      @split        = options.fetch(:split) { false }
-      @skip_caret   = options.fetch(:skip_caret) { false }
+      @navbar_text  = options.fetch(:navbar_text, nil)
+      @divider      = options.fetch(:divider, false)
+      @header       = options.fetch(:header, false)
+      @split        = options.fetch(:split, false)
+      @skip_caret   = options.fetch(:skip_caret, false)
       @link_options = @item.link_html_options || {}
     end
 
@@ -39,7 +40,8 @@ module SimpleNavigationBootstrap
     private
 
 
-      attr_reader :item, :level, :bootstrap_version, :options, :navbar_text, :divider, :header, :split, :skip_caret, :link_options
+      attr_reader :item, :level, :bootstrap_version, :options, :navbar_text, :divider,
+                  :header, :split, :skip_caret, :link_options
 
       def li_text
         content_tag(:li, content_tag(:p, item.name, class: 'navbar-text'), options)
@@ -60,7 +62,7 @@ module SimpleNavigationBootstrap
       end
 
 
-      def li_link
+      def li_link # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
         if include_sub_navigation?(item)
           if level == 1
             if split
@@ -87,20 +89,19 @@ module SimpleNavigationBootstrap
       end
 
 
-      def splitted_dropdown_part
+      def splitted_dropdown_part # rubocop:disable Metrics/AbcSize
         item.sub_navigation.dom_class = [item.sub_navigation.dom_class, 'pull-right'].flatten.compact.join(' ')
-        link_options = {}
         options[:id] = nil
         options[:class] = [options[:class], 'dropdown-split-right'].flatten.compact.join(' ')
         dropdown_part(caret)
       end
 
 
-      def dropdown_part(name)
+      def dropdown_part(name) # rubocop:disable Metrics/AbcSize
         options[:class] = [options[:class], 'dropdown'].flatten.compact.join(' ')
         link_options[:class] = [link_options[:class], 'dropdown-toggle'].flatten.compact.join(' ')
-        link_options[:"data-toggle"] = 'dropdown'
-        link_options[:"data-target"] = '#'
+        link_options[:'data-toggle'] = 'dropdown'
+        link_options[:'data-target'] = '#'
 
         content = link_to(name, '#', link_options) + render_sub_navigation_for(item)
         content_tag(:li, content, options)

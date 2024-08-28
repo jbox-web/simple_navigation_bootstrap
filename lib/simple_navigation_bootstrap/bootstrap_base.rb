@@ -3,7 +3,7 @@
 module SimpleNavigationBootstrap
   module BootstrapBase
 
-    def render(item_container)
+    def render(item_container) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
       if skip_if_empty? && item_container.empty?
         ''
       else
@@ -34,7 +34,7 @@ module SimpleNavigationBootstrap
 
 
       def container_class(level)
-        remove_navigation_class = options.fetch(:remove_navigation_class) { false }
+        remove_navigation_class = options.fetch(:remove_navigation_class, false)
         if level == 1
           remove_navigation_class ? '' : ['nav', navigation_class].compact
         else
@@ -43,7 +43,7 @@ module SimpleNavigationBootstrap
       end
 
 
-      def with_bootstrap_configs
+      def with_bootstrap_configs # rubocop:disable Metrics/MethodLength
         # Get current config
         sn_config = SimpleNavigation.config
 
@@ -72,8 +72,8 @@ module SimpleNavigationBootstrap
         return name unless name.is_a?(Hash)
 
         if name[:icon]
-          icon_options = { class: name[:icon], title: name[:title] }.reject { |_, v| v.nil? }
-          content_tag(:i, '', icon_options) + ' ' + (name[:text] || '')
+          icon_options = { class: name[:icon], title: name[:title] }.compact
+          content_tag(:i, '', icon_options) + ' ' + (name[:text] || '') # rubocop:disable Style/StringConcatenation
         else
           name[:text] || (raise SimpleNavigationBootstrap::Error::InvalidHash)
         end
