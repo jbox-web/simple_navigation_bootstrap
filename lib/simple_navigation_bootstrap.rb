@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
+# require ruby dependencies
 require 'forwardable'
-require 'simple-navigation'
 
+# require external dependencies
+require 'simple-navigation'
 require 'zeitwerk'
-loader = Zeitwerk::Loader.for_gem
-loader.setup
+
+# load zeitwerk
+Zeitwerk::Loader.for_gem.tap do |loader| # rubocop:disable Style/SymbolProc
+  loader.setup
+end
 
 module SimpleNavigationBootstrap
 end
