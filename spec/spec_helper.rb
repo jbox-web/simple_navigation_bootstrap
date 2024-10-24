@@ -27,11 +27,9 @@ RAILS_ROOT = './' unless defined?(RAILS_ROOT)
 RAILS_ENV = 'test' unless defined?(RAILS_ENV)
 ## END ##
 
-current_dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
-
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories.
-Dir[File.join(current_dir, 'spec/support/**/*.rb')].each { |f| require f }
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 # Configure RSpec
 RSpec.configure do |config|
