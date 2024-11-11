@@ -4,16 +4,19 @@ source 'https://rubygems.org'
 
 gemspec
 
+# Dev libs
 gem 'actionpack'
 gem 'actionview'
-gem 'guard-rspec'
 gem 'rake'
 gem 'rspec'
-gem 'rubocop'
-gem 'rubocop-performance'
-gem 'rubocop-rake'
-gem 'rubocop-rspec'
 gem 'simplecov'
+
+# Dev tools / linter
+gem 'guard-rspec',         require: false
+gem 'rubocop',             require: false
+gem 'rubocop-performance', require: false
+gem 'rubocop-rake',        require: false
+gem 'rubocop-rspec',       require: false
 
 # Fix:
 # warning: ostruct was loaded from the standard library, but will no longer be part of the default gems since Ruby 3.5.0
