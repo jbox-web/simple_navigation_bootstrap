@@ -121,7 +121,8 @@ module SimpleNavigationBootstrap
 
       def simple_link
         link_options[:method] ||= item.method
-        link_to(item.name, (item.url || '#'), link_options)
+        url = item.url || '#'
+        link_to(item.name, url, link_options)
       end
 
   end
