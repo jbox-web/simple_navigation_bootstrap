@@ -47,6 +47,8 @@ RSpec.configure do |config|
   # see: https://relishapp.com/rspec/rspec-core/v/3-8/docs/configuration/zero-monkey-patching-mode
   config.disable_monkey_patching!
 
+  config.raise_errors_for_deprecations!
+
   # Include standard helpers
   config.include TestHelper
 end
