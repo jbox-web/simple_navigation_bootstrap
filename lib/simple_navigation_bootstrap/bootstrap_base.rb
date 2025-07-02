@@ -28,8 +28,8 @@ module SimpleNavigationBootstrap
     private
 
 
-      def render_item(*args)
-        SimpleNavigationBootstrap::RenderedItem.new(*args).to_s
+      def render_item(*)
+        SimpleNavigationBootstrap::RenderedItem.new(*).to_s
       end
 
 
