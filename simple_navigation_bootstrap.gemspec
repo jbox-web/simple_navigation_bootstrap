@@ -18,5 +18,5 @@ Gem::Specification.new do |s|
   s.files = Dir['README.md', 'CHANGELOG.md', 'LICENSE', 'lib/**/*.rb', 'vendor/**/*.scss']
 
   s.add_dependency 'simple-navigation', '~> 4.0'
-  s.add_dependency 'zeitwerk', '~> 2.6.0'
+  s.add_dependency 'zeitwerk'
 end
