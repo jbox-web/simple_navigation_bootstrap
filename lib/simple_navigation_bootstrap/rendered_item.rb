@@ -98,7 +98,7 @@ module SimpleNavigationBootstrap
 
 
       def dropdown_part(name) # rubocop:disable Metrics/AbcSize
-        options[:class] = [options[:class], 'dropdown'].flatten.compact.join(' ')
+        options[:class] = [options[:class], 'dropdown-menu'].flatten.compact.join(' ')
         link_options[:class] = [link_options[:class], 'dropdown-toggle'].flatten.compact.join(' ')
         link_options[:'data-toggle'] = 'dropdown'
         link_options[:'data-target'] = '#'
