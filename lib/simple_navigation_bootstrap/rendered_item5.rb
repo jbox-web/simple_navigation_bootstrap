@@ -35,7 +35,7 @@ module SimpleNavigationBootstrap
         "nav-link",
         "dropdown-toggle"
       ].flatten.compact.join(" ")
-      link_options[:"role"] = "button"
+      link_options[:role] = "button"
       link_options[:"data-bs-toggle"] = "dropdown"
       link_options[:"aria-expanded"] = "false"
 
@@ -46,7 +46,7 @@ module SimpleNavigationBootstrap
 
     def simple_link
       link_class = level == 1 ? "nav-link" : "dropdown-item"
-      link_options[:class] = [options[:class], link_class].flatten.compact.join(" ")
+      link_options[:class] = link_class
       link_options[:method] ||= item.method
       url = item.url || "#"
       link_to(item.name, url, link_options)
