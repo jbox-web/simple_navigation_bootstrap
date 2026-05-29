@@ -46,8 +46,9 @@ module SimpleNavigationBootstrap
 
     def simple_link
       link_class = level == 1 ? "nav-link" : "dropdown-item"
-      link_options[:class] = [link_options[:class], link_class].flatten.compact.join(" ")
+      link_options[:class] = [link_options[:class], link_class, item.selected_class].flatten.compact.join(" ")
       link_options[:method] ||= item.method
+      link_options[:"aria-current"] = "page" if item.selected?
       url = item.url || "#"
       link_to(item.name, url, link_options)
     end
