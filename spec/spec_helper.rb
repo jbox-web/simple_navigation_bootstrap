@@ -6,6 +6,7 @@ require 'simplecov_json_formatter'
 # Start SimpleCov
 SimpleCov.start do
   formatter SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::HTMLFormatter, SimpleCov::Formatter::JSONFormatter])
+  enable_coverage :branch
   skip 'spec/'
 end
 
