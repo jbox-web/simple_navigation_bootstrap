@@ -6,6 +6,7 @@
 * Fix: restore global SimpleNavigation config even when rendering raises (no more leaked `selected_class`/`name_generator`)
 * Fix: escape plain-string dropdown labels instead of marking them html_safe blindly
 * Fix: stop leaking bootstrap-only options (`divider`, `header`, `navbar_text`, `split`, `skip_caret`) as HTML attributes
+* Fix: render an isolated level (`render_navigation(level: N)`) as a top-level navbar instead of a hidden `dropdown-menu` (#5)
 * Add Bootstrap4 renderer specs
 * Require Ruby >= 3.2, test against Ruby 3.3 / 3.4 / 4.0
 * Switch code coverage from Code Climate to qlty

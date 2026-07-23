@@ -7,17 +7,23 @@ module SimpleNavigationBootstrap
       if skip_if_empty? && item_container.empty?
         ''
       else
+        # When a single level is rendered in isolation ('render_navigation(level: N)'),
+        # that level must be treated as the top-level navbar, not as a nested
+        # dropdown. 'effective_level' maps the container's absolute level back so
+        # the requested level becomes 1. See issue #5.
+        effective_level = effective_level_for(item_container.level)
+
         # Generate list of items
         list_content = with_bootstrap_configs do
           item_container.items.inject([]) do |list, item|
-            list << render_item(self, item, item_container.level, bootstrap_version)
+            list << render_item(self, item, effective_level, bootstrap_version)
           end.join
         end
 
         # Set CSS class for container :
         #   class = 'nav' if level == 1
         #   class = 'dropdown-menu' if level > 1
-        item_container.dom_class = [item_container.dom_class, container_class(item_container.level)].flatten.compact.join(' ')
+        item_container.dom_class = [item_container.dom_class, container_class(effective_level)].flatten.compact.join(' ')
 
         # Generate the final list
         content_tag(:ul, list_content, id: item_container.dom_id, class: item_container.dom_class)
@@ -35,6 +41,19 @@ module SimpleNavigationBootstrap
 
       def container_class(level)
         level == 1 ? navigation_container_class : 'dropdown-menu'
+      end
+
+
+      # Normalises an absolute container level against the ':level' render option.
+      # For a single Integer level (e.g. level: 2), simple-navigation renders only
+      # that container with no sub-navigation recursion, so shifting it to 1 makes
+      # the isolated level render as a top-level navbar. For ':all' or a Range the
+      # absolute level is kept unchanged.
+      def effective_level_for(container_level)
+        requested = options[:level]
+        return container_level unless requested.is_a?(Integer)
+
+        container_level - requested + 1
       end
 
 

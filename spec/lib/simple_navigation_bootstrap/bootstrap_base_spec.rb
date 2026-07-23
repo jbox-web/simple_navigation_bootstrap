@@ -78,4 +78,47 @@ RSpec.describe SimpleNavigationBootstrap::BootstrapBase do
     end
   end
 
+
+  # Regression specs for https://github.com/jbox-web/simple_navigation_bootstrap/issues/5
+  # Rendering a single level in isolation ('render_navigation(level: 2)') must
+  # treat that level as the top-level navbar, not as a hidden 'dropdown-menu'.
+  describe '#render with a single ":level" option' do
+
+    context 'with the Bootstrap 3 renderer' do
+      let(:menu) { build_menu_level(version: 3, level: 2) }
+
+      it "wraps the isolated level in a top-level 'nav navbar-nav' ul, not 'dropdown-menu'" do
+        check_selector menu, 'ul.nav.navbar-nav'
+        check_selector menu, 'ul.dropdown-menu', 0
+      end
+    end
+
+    context 'with the Bootstrap 4 renderer' do
+      let(:menu) { build_menu_level(version: 4, level: 2) }
+
+      it "wraps the isolated level in a top-level 'nav navbar-nav' ul" do
+        check_selector menu, 'ul.nav.navbar-nav'
+      end
+
+      it 'renders its direct items as top-level list entries, not nested submenus' do
+        check_selector menu, 'ul.nav.navbar-nav > li > a[href="/main_info_page"]'
+        check_selector menu, 'li.dropdown-submenu', 0
+      end
+    end
+
+    context 'with the Bootstrap 5 renderer' do
+      let(:menu) { build_menu_level(version: 5, level: 2) }
+
+      it "wraps the isolated level in a top-level 'nav navbar-nav' ul, not 'dropdown-menu'" do
+        check_selector menu, 'ul.nav.navbar-nav'
+        check_selector menu, 'ul.dropdown-menu', 0
+      end
+
+      it 'renders its direct items as top-level nav-link anchors' do
+        check_selector menu, 'ul.nav.navbar-nav > li.nav-item > a.nav-link[href="/main_info_page"]'
+      end
+    end
+
+  end
+
 end

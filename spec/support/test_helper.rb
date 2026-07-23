@@ -3,16 +3,30 @@
 module TestHelper # rubocop:disable Metrics/ModuleLength
 
   def build_menu(version:, menu_name: :splited_menu, stub_name: false, menu_opts: {})
-    case version
-    when 2
-      render_result(SimpleNavigationBootstrap::Bootstrap2, menu_name, stub_name, menu_opts)
-    when 3
-      render_result(SimpleNavigationBootstrap::Bootstrap3, menu_name, stub_name, menu_opts)
-    when 4
-      render_result(SimpleNavigationBootstrap::Bootstrap4, menu_name, stub_name, menu_opts)
-    when 5
-      render_result(SimpleNavigationBootstrap::Bootstrap5, menu_name, stub_name, menu_opts)
-    end
+    render_result(renderer_for(version), menu_name, stub_name, menu_opts)
+  end
+
+
+  def renderer_for(version)
+    {
+      2 => SimpleNavigationBootstrap::Bootstrap2,
+      3 => SimpleNavigationBootstrap::Bootstrap3,
+      4 => SimpleNavigationBootstrap::Bootstrap4,
+      5 => SimpleNavigationBootstrap::Bootstrap5
+    }.fetch(version)
+  end
+
+
+  # Renders a single navigation level in isolation, reproducing what
+  # simple-navigation does for 'render_navigation(level: N)': it looks up the
+  # ItemContainer at that absolute level and calls '.render(level: N)' on it.
+  # Here we grab the sub_navigation of 'parent_key' (an absolute level-2
+  # container) and render it with the matching ':level' option.
+  def build_menu_level(version:, level:, menu_name: :demo_menu, parent_key: :info)
+    renderer = renderer_for(version)
+    prepare_navigation_instance(renderer)
+    container = build_main_menu(menu_name, false).items.find { |item| item.key == parent_key }.sub_navigation
+    html_document(container.render(level: level, expand_all: true))
   end
 
 
