@@ -14,4 +14,8 @@ RSpec.describe SimpleNavigationBootstrap do
   it 'registers Bootstrap4 renderer' do
     expect(SimpleNavigation.registered_renderers[:bootstrap4]).to eq SimpleNavigationBootstrap::Bootstrap4
   end
+
+  it 'registers Bootstrap5 renderer' do
+    expect(SimpleNavigation.registered_renderers[:bootstrap5]).to eq SimpleNavigationBootstrap::Bootstrap5
+  end
 end

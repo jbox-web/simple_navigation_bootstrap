@@ -10,6 +10,8 @@ module TestHelper # rubocop:disable Metrics/ModuleLength
       render_result(SimpleNavigationBootstrap::Bootstrap3, menu_name, stub_name, menu_opts)
     when 4
       render_result(SimpleNavigationBootstrap::Bootstrap4, menu_name, stub_name, menu_opts)
+    when 5
+      render_result(SimpleNavigationBootstrap::Bootstrap5, menu_name, stub_name, menu_opts)
     end
   end
 

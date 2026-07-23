@@ -18,3 +18,4 @@ end
 SimpleNavigation.register_renderer(bootstrap2: SimpleNavigationBootstrap::Bootstrap2)
 SimpleNavigation.register_renderer(bootstrap3: SimpleNavigationBootstrap::Bootstrap3)
 SimpleNavigation.register_renderer(bootstrap4: SimpleNavigationBootstrap::Bootstrap4)
+SimpleNavigation.register_renderer(bootstrap5: SimpleNavigationBootstrap::Bootstrap5)

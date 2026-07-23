@@ -2,6 +2,7 @@
 
 ### Unreleased
 
+* Add Bootstrap5 renderer (native Bootstrap 5 markup: `nav-link`/`dropdown-item`, `data-bs-toggle`, `<hr class="dropdown-divider">`, `<h6 class="dropdown-header">`, CSS caret, `dropdown-toggle-split`)
 * Fix: restore global SimpleNavigation config even when rendering raises (no more leaked `selected_class`/`name_generator`)
 * Fix: escape plain-string dropdown labels instead of marking them html_safe blindly
 * Fix: stop leaking bootstrap-only options (`divider`, `header`, `navbar_text`, `split`, `skip_caret`) as HTML attributes
