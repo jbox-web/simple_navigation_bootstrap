@@ -34,15 +34,21 @@ module SimpleNavigationBootstrap
 
 
       def container_class(level)
-        remove_navigation_class = options.fetch(:remove_navigation_class, false)
-        if level == 1
-          remove_navigation_class ? '' : ['nav', navigation_class].compact
-        else
-          'dropdown-menu'
-        end
+        level == 1 ? navigation_container_class : 'dropdown-menu'
       end
 
 
+      # The root container class, honouring the ':remove_navigation_class' render option
+      def navigation_container_class
+        options.fetch(:remove_navigation_class, false) ? '' : ['nav', navigation_class].compact
+      end
+
+
+      # NOTE: this mutates the process-global SimpleNavigation.config singleton
+      # (selected_class, name_generator) for the duration of the render. It is
+      # therefore not thread-safe: concurrent renders on a multi-threaded server
+      # (e.g. Puma) may interleave. The 'ensure' below at least guarantees the
+      # global state is restored even when the rendered block raises.
       def with_bootstrap_configs # rubocop:disable Metrics/MethodLength
         # Get current config
         sn_config = SimpleNavigation.config
@@ -58,13 +64,12 @@ module SimpleNavigationBootstrap
         end
 
         # Generate menu
-        result = yield
-
-        # Restore config
+        yield
+      ensure
+        # Restore config, even if the rendered block raised (e.g. InvalidHash),
+        # otherwise the global singleton stays corrupted for later renders.
         sn_config.name_generator = config_name_generator
         sn_config.selected_class = config_selected_class
-
-        result
       end
 
 

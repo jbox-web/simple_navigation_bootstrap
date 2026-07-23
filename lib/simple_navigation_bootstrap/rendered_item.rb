@@ -8,18 +8,25 @@ module SimpleNavigationBootstrap
 
     def_delegators :renderer, :link_to, :content_tag, :include_sub_navigation?, :render_sub_navigation_for
 
+    # Bootstrap-specific option keys consumed by this renderer. They drive the
+    # rendering but must NOT be emitted as HTML attributes on the <li> tag.
+    BOOTSTRAP_OPTION_KEYS = %i[navbar_text divider header split skip_caret].freeze
+
     def initialize(renderer, item, level, bootstrap_version) # rubocop:disable Metrics/MethodLength
       @renderer = renderer
       @item     = item
       @level    = level
       @bootstrap_version = bootstrap_version
 
-      @options      = item.html_options
-      @navbar_text  = options.fetch(:navbar_text, nil)
-      @divider      = options.fetch(:divider, false)
-      @header       = options.fetch(:header, false)
-      @split        = options.fetch(:split, false)
-      @skip_caret   = options.fetch(:skip_caret, false)
+      html_options  = item.html_options
+      @navbar_text  = html_options.fetch(:navbar_text, nil)
+      @divider      = html_options.fetch(:divider, false)
+      @header       = html_options.fetch(:header, false)
+      @split        = html_options.fetch(:split, false)
+      @skip_caret   = html_options.fetch(:skip_caret, false)
+      # Strip the bootstrap-only keys so they don't leak as HTML attributes.
+      # 'except' also returns a copy, so we no longer mutate the item's config hash.
+      @options      = html_options.except(*BOOTSTRAP_OPTION_KEYS)
       @link_options = @item.link_html_options || {}
     end
 
@@ -68,9 +75,13 @@ module SimpleNavigationBootstrap
             if split
               splitted_simple_part + splitted_dropdown_part
             else
-              content = [item.name]
-              content << caret unless skip_caret
-              content = content.join(' ').html_safe
+              # Build the toggle label in a SafeBuffer: a plain-string name is
+              # escaped, while an already-safe name (e.g. the icon markup from a
+              # name Hash) and the caret are kept as-is. Marking the whole thing
+              # html_safe blindly would let raw HTML in a string label through.
+              content = ''.html_safe
+              content << item.name
+              content << ' ' << caret unless skip_caret
               dropdown_part(content)
             end
           else

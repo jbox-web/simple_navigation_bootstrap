@@ -5,8 +5,6 @@
 [![Gem](https://img.shields.io/gem/v/simple_navigation_bootstrap.svg)](https://rubygems.org/gems/simple_navigation_bootstrap/versions/1.0.1)
 [![Gem](https://img.shields.io/gem/dtv/simple_navigation_bootstrap.svg)](https://rubygems.org/gems/simple_navigation_bootstrap/versions/1.0.1)
 [![CI](https://github.com/jbox-web/simple_navigation_bootstrap/workflows/CI/badge.svg)](https://github.com/jbox-web/simple_navigation_bootstrap/actions)
-[![Code Climate](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/badges/gpa.svg)](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap)
-[![Test Coverage](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/badges/coverage.svg)](https://codeclimate.com/github/jbox-web/simple_navigation_bootstrap/coverage)
 
 This gem adds Bootstrap renderers for [Simple Navigation](https://github.com/codeplant/simple-navigation). For now, it is include renderers for:
 

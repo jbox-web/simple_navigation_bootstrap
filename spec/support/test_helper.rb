@@ -138,4 +138,26 @@ module TestHelper # rubocop:disable Metrics/ModuleLength
 
     def empty_menu(primary); end
 
+
+    # First level dropdown item whose name is a plain string containing HTML,
+    # used to check that plain-string labels are escaped (not marked html_safe blindly)
+    def xss_menu(primary)
+      primary.item :news, 'News', 'news_index_path'
+      primary.item :danger, '<script>alert(1)</script>', '#' do |sub_nav|
+        sub_nav.item :child, 'Child', 'child_path'
+      end
+    end
+
+
+    # Two first level dropdown items, one with ':skip_caret' set, to check the caret is omitted
+    def skip_caret_menu(primary)
+      primary.item :news, 'News', 'news_index_path'
+      primary.item :with_caret, 'WithCaret', '#', html: { class: 'to_check_caret' } do |sub_nav|
+        sub_nav.item :child1, 'Child1', 'child1_path'
+      end
+      primary.item :no_caret, 'NoCaret', '#', html: { class: 'to_check_no_caret', skip_caret: true } do |sub_nav|
+        sub_nav.item :child2, 'Child2', 'child2_path'
+      end
+    end
+
 end
